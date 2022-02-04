@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block body %}
+<h1 style="background-color:skyblue;" >URL Shortner</h1>
+<form method='post'>
+<input type="text" name="in_1" placeholder="Enter original URL">
+<button>Shorten</button>
+</form>
+<br>
+original URL is - {{data}} <br/>
+Shortened URL is - {{k}} <br>
+<br>
+    <form action='/sh/{{k}}'>
+        <input value= "127.0.0.1:5000/sh/{{k}}" id="myInput">
+        <button onclick="myFunction()"> Copy </button>
+    </form>
+
+<script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById(""+"myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the t
+  ext field */
+  navigator.clipboard.writeText(copyText.value);
+  
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value); 
+}
+</script>
+{% endblock %}

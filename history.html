@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+History Page
+{% endblock %}
+
+{% block body %}
+<h1 style="background-color:rgb(173, 231, 36); ">History</h1>
+
+<ul>
+{% for short_url in all_url %}
+    <li>{{ data[short_url] }}  -  {{ short_url }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
